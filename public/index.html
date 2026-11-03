@@ -65,6 +65,7 @@ section[id]{scroll-margin-top:80px}
 .hs img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:6px;border:1px solid var(--rule)}
 footer a{color:var(--on-dark)!important;text-decoration:none}footer a:hover{color:var(--mint)!important}
 section[style*="var(--night)"] .eyebrow{color:var(--mint)!important}
+.foot-bar{padding-right:96px;box-sizing:border-box}@media (max-width:700px){.foot-bar{padding-right:0;padding-bottom:56px}}
 .social{display:flex;gap:10px;margin-top:6px}
 .social a,.social .soon-ico{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--on-dark-3);font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--on-dark)!important}
 .social a:hover{border-color:var(--mint)}
@@ -87,7 +88,7 @@ section[style*="var(--night)"] .eyebrow{color:var(--mint)!important}
 .about .certs{display:flex;flex-wrap:wrap;gap:8px}
 .about .certs span{font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:3px;border:1px solid var(--orbit);color:var(--on-dark-2)}
 .about .edu{margin:0;font-size:13px;color:var(--on-dark-3)}
-.about .li{color:var(--mint);font-weight:500;text-decoration:none;font-size:15px}
+.about .li-btn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--mint);color:var(--mint);margin-top:4px;align-self:flex-start}.about .li-btn:hover{background:var(--mint);color:var(--night)}
 .site-foot{background:var(--night);color:var(--on-dark-2);padding-block:64px 28px;border-top:1px solid var(--orbit)}
 .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:40px}
 .foot-brand{display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -159,7 +160,7 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <span class="eyebrow">Why now</span>
 <h2 class="h2">AI adoption is outpacing governance, visibility and ownership.</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-<div class="card"><span class="idx" aria-hidden="true">01</span><h3 class="h3">Three reporting lines, one AI programme.</h3><p class="p" style="font-size: 15px;">HQ risk, Indian regulators (DPDP) and your local board each ask different questions about the same models.</p></div>
+<div class="card"><span class="idx" aria-hidden="true">01</span><h3 class="h3">Three reporting lines, one AI programme.</h3><p class="p" style="font-size: 15px;">HQ risk and the parent&#39;s home-country rules, Indian regulators and your local board each ask different questions about the same models.</p></div>
 <div class="card"><span class="idx" aria-hidden="true">02</span><h3 class="h3">Shadow AI is already in production.</h3><p class="p" style="font-size: 15px;">Copilots, coding assistants and API models arrive faster than any register can record them.</p></div>
 <div class="card"><span class="idx" aria-hidden="true">03</span><h3 class="h3">No audit-ready evidence.</h3><p class="p" style="font-size: 15px;">Point-in-time reviews go stale within weeks.</p></div>
 <div class="card"><span class="idx" aria-hidden="true">04</span><h3 class="h3">No peer benchmark.</h3><p class="p" style="font-size: 15px;">Nobody in the room can say if you are ahead or behind peer GCCs.</p></div>
@@ -174,7 +175,7 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <p class="p">One fixed-scope engagement that gives your board a defensible answer, built for how Global Capability Centres (GCCs) actually report.</p>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
 <div class="card"><span class="tag" style="align-self: flex-start;">Covers</span><h3 class="h3">AI governance and responsible AI</h3><p class="p" style="font-size: 15px;">Ownership, AI inventory including shadow AI, controls and assurance.</p></div>
-<div class="card"><span class="tag" style="align-self: flex-start;">Covers</span><h3 class="h3">AI security and agentic AI readiness</h3><p class="p" style="font-size: 15px;">Access, permissions, data exposure and human oversight for assistants and agents.</p></div>
+<div class="card"><span class="tag" style="align-self: flex-start;">Covers</span><h3 class="h3">AI security and agentic AI readiness</h3><p class="p" style="font-size: 15px;">Access, permissions, data exposure and human approval for AI assistants (like Copilot) and AI agents that act on their own.</p></div>
 <div class="card soon"><span class="tag" style="align-self: flex-start;">What follows</span><h3 class="h3">The GCC operating model for AI</h3><p class="p" style="font-size: 15px;">Delivered through advisory and executive workshops once the diagnostic sets the baseline.</p></div>
 </div>
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
@@ -261,7 +262,7 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <div class="who"><b>Saravanan Jayaraman</b><span>Founder · two decades across HPE, Concentrix and OpSec Security</span></div>
 <p class="p">Set up and led India capability teams for global enterprises, and now builds AI security and governance products from the ground up.</p>
 <div class="certs"><span>EXIN AI Security</span><span>EXIN AI Compliance</span><span>ISO/IEC 27001</span><span>Data Protection Officer</span></div>
-<a class="li" href="https://www.linkedin.com/in/sjeleven11/">Full profile on LinkedIn ↗</a>
+<a class="li-btn" href="https://www.linkedin.com/in/sjeleven11/" target="_blank" rel="noopener" aria-label="Connect with Saravanan Jayaraman on LinkedIn" title="Connect on LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
 </div>
 </div>
 </section>
@@ -284,8 +285,9 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <form class="eoi js-lead" data-kind="partner" aria-label="Partner expression of interest" novalidate>
 <div class="hp" aria-hidden="true"><label>Leave this empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
 <div class="h3" style="grid-column: 1 / -1; font-size: 17px;">Partner expression of interest</div>
-<div class="fld"><label class="lbl" for="p-name">Name</label><input class="in" id="p-name" name="name" required maxlength="200" type="text" autocomplete="name"></div>
-<div class="fld"><label class="lbl" for="p-email">Work email</label><input class="in" id="p-email" name="email" required maxlength="200" type="email" autocomplete="email"></div>
+<div class="fld"><label class="lbl" for="p-first">First name</label><input class="in" id="p-first" name="first_name" required maxlength="100" type="text" autocomplete="given-name"></div>
+<div class="fld"><label class="lbl" for="p-last">Last name</label><input class="in" id="p-last" name="last_name" required maxlength="100" type="text" autocomplete="family-name"></div>
+<div class="fld"><label class="lbl" for="p-email">Work email</label><input class="in" id="p-email" name="email" required maxlength="200" type="email" autocomplete="email" inputmode="email" placeholder="name@yourcompany.com"></div>
 <div class="fld"><label class="lbl" for="p-co">Company</label><input class="in" id="p-co" name="company" required maxlength="200" type="text" autocomplete="organization"></div>
 <div class="fld"><label class="lbl" for="p-web">Company website</label><input class="in" id="p-web" name="website" maxlength="200" type="url" placeholder="https://"></div>
 <div class="fld"><label class="lbl" for="p-type">Partnership type</label><select class="in" id="p-type" name="type"><option>Product vendor</option><option>Reseller or channel partner</option><option>System integrator or consultancy</option><option>Other</option></select></div>
@@ -309,11 +311,12 @@ button[disabled]{opacity:.6;cursor:wait!important}
 </div>
 <form style="flex: 1 1 480px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; background: var(--card); border: 1.5px solid var(--rule); border-radius: 12px; padding: 28px; box-sizing: border-box;" aria-label="Request a conversation" class="js-lead" data-kind="client" novalidate>
 <div class="hp" aria-hidden="true"><label>Leave this empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
-<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-name">Name</label><input class="in" id="f-name" name="name" required maxlength="200" type="text" autocomplete="name"></div>
-<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-email">Work email</label><input class="in" id="f-email" name="email" required maxlength="200" type="email" autocomplete="email"></div>
-<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-org">Organisation</label><input class="in" id="f-org" name="organisation" required maxlength="200" type="text" autocomplete="organization"></div>
-<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-role">Role</label><input class="in" id="f-role" name="role" maxlength="200" type="text" autocomplete="organization-title"></div>
-<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-stage">GCC stage</label><select class="in" id="f-stage" name="stage"><option>Planning an India GCC</option><option>Under 500 people</option><option>500 to 1,000</option><option>1,000 to 3,000</option><option>3,000+</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-first">First name</label><input class="in" id="f-first" name="first_name" required maxlength="100" type="text" autocomplete="given-name"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-last">Last name</label><input class="in" id="f-last" name="last_name" required maxlength="100" type="text" autocomplete="family-name"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-email">Work email</label><input class="in" id="f-email" name="email" required maxlength="200" type="email" autocomplete="email" inputmode="email" placeholder="name@yourcompany.com"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-org">Company</label><input class="in" id="f-org" name="company" required maxlength="200" type="text" autocomplete="organization"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-role">Your role</label><select class="in" id="f-role" name="role" required><option value="" disabled selected>Select your role</option><option>GCC head or site leader</option><option>CIO, CTO or technology head</option><option>CISO or security head</option><option>Risk, compliance or legal</option><option>Data or AI leader</option><option>HQ or board sponsor</option><option>Advisor or consultant</option><option>Other</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-stage">Where is your GCC today?</label><select class="in" id="f-stage" name="stage" required><option value="" disabled selected>Select one</option><optgroup label="Not set up yet"><option>Planning a new India GCC</option></optgroup><optgroup label="Already running (people in India)"><option>Existing · under 500</option><option>Existing · 500–1,000</option><option>Existing · 1,000–3,000</option><option>Existing · 3,000+</option></optgroup></select></div>
 <div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-area">Challenge area</label><select class="in" id="f-area" name="area"><option>AI governance</option><option>AI security and agents</option><option>Operating model</option><option>Setting up a new GCC</option><option>Not sure yet</option></select></div>
 <div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-msg">Message (optional)</label><textarea class="in" id="f-msg" name="message" maxlength="2000" rows="3" style="padding: 10px 12px; min-height: 88px;"></textarea><span style="font-size: 13px; color: var(--muted);">Please do not include confidential details.</span></div>
 <div style="grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start;"><input id="f-consent" name="consent" required type="checkbox" style="width: 20px; height: 20px; margin-top: 2px;"><label for="f-consent" style="font-size: 14px; line-height: 1.5; color: var(--ink-2);">I agree that bookmyGCC may use these details to respond to my request, as described in the <a href="/privacy">privacy notice</a>.</label></div>
@@ -334,10 +337,10 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <p class="foot-tag">HQ to GCC. One governed orbit.</p>
 <p class="foot-desc">AI governance and AI security advisory for Global Capability Centres.</p>
 <div class="social" aria-label="Social media">
-<a href="https://www.linkedin.com/in/sjeleven11/" aria-label="LinkedIn">in</a>
-<span class="soon-ico" title="Placeholder, add when the account is live">X</span>
-<span class="soon-ico" title="Placeholder, add when the account is live">YT</span>
-<span class="soon-ico" title="Placeholder, add when the account is live">IG</span>
+<a href="https://www.linkedin.com/in/sjeleven11/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+<span class="soon-ico" role="img" aria-label="X, coming soon" title="Coming soon"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg></span>
+<span class="soon-ico" role="img" aria-label="YouTube, coming soon" title="Coming soon"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.6V8.4l6.2 3.6-6.2 3.6z"/></svg></span>
+<span class="soon-ico" role="img" aria-label="Instagram, coming soon" title="Coming soon"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></span>
 </div>
 </div>
 <nav class="foot-col" aria-label="Explore"><h3>Explore</h3><a href="#why">Why now</a><a href="#offer">Diagnostic</a><a href="#how">How we work</a><a href="#partners">Partner with us</a><a href="#about">About</a></nav>

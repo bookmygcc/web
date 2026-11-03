@@ -13,9 +13,16 @@
     var btn = form.querySelector('button[type="submit"]');
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      var FREE = /@(gmail|googlemail|yahoo|ymail|outlook|hotmail|live|msn|aol|icloud|me|proton|protonmail|rediffmail|gmx|mail|zoho|yandex)\.[a-z.]+$/i;
+      var email = form.querySelector('[name="email"]');
+      if (email) email.setCustomValidity(FREE.test(email.value.trim()) ? 'personal' : '');
       if (!form.checkValidity()) {
         var bad = form.querySelector(':invalid');
-        setStatus(status, bad && bad.type === 'checkbox' ? 'Please tick the consent box to continue.' : 'Please fill in your name, a valid work email and your organisation.', 'err');
+        var msg = 'Please complete the required fields.';
+        if (bad && bad.type === 'checkbox') msg = 'Please tick the consent box to continue.';
+        else if (bad && bad.name === 'email') msg = email.validity.customError ? 'Please use your work email, not a personal one such as Gmail.' : 'Please enter a valid work email, for example name@yourcompany.com.';
+        else if (bad && bad.tagName === 'SELECT') msg = 'Please choose an option from the list.';
+        setStatus(status, msg, 'err');
         if (bad) bad.focus();
         return;
       }

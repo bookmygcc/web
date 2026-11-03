@@ -7,10 +7,12 @@
 const ALLOWED_HOSTS = ['bookmygcc.com', 'www.bookmygcc.com', 'web.saravanan-a38.workers.dev'];
 const MAX_BODY = 16 * 1024;
 const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/;
+// Free webmail domains are not accepted: we ask for a work email so the founder can place the request.
+const FREE_MAIL = new Set(['gmail.com','googlemail.com','yahoo.com','yahoo.in','yahoo.co.in','ymail.com','outlook.com','hotmail.com','live.com','msn.com','aol.com','icloud.com','me.com','proton.me','protonmail.com','rediffmail.com','gmx.com','mail.com','zoho.com','yandex.com']);
 
 const FIELDS = {
-  client: { required: ['name', 'email', 'organisation'], optional: ['role', 'stage', 'area', 'message'] },
-  partner: { required: ['name', 'email', 'company'], optional: ['website', 'type', 'area', 'message'] },
+  client: { required: ['first_name', 'last_name', 'email', 'company', 'role', 'stage'], optional: ['area', 'message'] },
+  partner: { required: ['first_name', 'last_name', 'email', 'company'], optional: ['website', 'type', 'area', 'message'] },
 };
 
 function json(body, status = 200) {
@@ -70,6 +72,7 @@ async function handleLead(request, env) {
   for (const f of [...spec.required, ...spec.optional]) lead[f] = clean(d[f], f === 'message' ? 2000 : 200);
   for (const f of spec.required) if (!lead[f]) return json({ ok: false, error: 'Please fill in all required fields.' }, 400);
   if (!EMAIL_RE.test(lead.email)) return json({ ok: false, error: 'Please enter a valid work email.' }, 400);
+  if (FREE_MAIL.has(lead.email.split('@')[1].toLowerCase())) return json({ ok: false, error: 'Please use your work email, not a personal one such as Gmail.' }, 400);
   if (d.consent !== true) return json({ ok: false, error: 'Please tick the consent box.' }, 400);
 
   if (!env.TURNSTILE_SECRET) return json({ ok: false, error: 'Form is not configured yet.' }, 503);
