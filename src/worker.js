@@ -97,7 +97,9 @@ async function handleLead(request, env) {
     body: JSON.stringify({ key: env.LEADS_WEBHOOK_KEY || '', lead }),
     redirect: 'follow',
   });
-  if (!r.ok) {
+  let saved = false;
+  if (r.ok) { try { saved = (await r.json()).ok === true; } catch { saved = false; } }
+  if (!saved) {
     console.error(JSON.stringify({ event: 'lead_webhook_failed', status: r.status, kind }));
     return json({ ok: false, error: 'We could not save your request right now.' }, 502);
   }
