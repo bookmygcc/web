@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>bookmyGCC · AI governance for Global Capability Centres</title>
+<meta name="description" content="Independent AI governance and AI security advisory for Global Capability Centres (GCCs) in India. Govern AI the way your GCC actually reports.">
+<meta name="theme-color" content="#0B131B">
+<link rel="canonical" href="https://bookmygcc.com/">
+<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/assets/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website"><meta property="og:site_name" content="bookmyGCC"><meta property="og:url" content="https://bookmygcc.com/">
+<meta property="og:title" content="bookmyGCC · Govern AI the way your GCC actually reports">
+<meta property="og:description" content="AI governance and AI security advisory for Global Capability Centres. HQ to GCC. One governed orbit.">
+<meta property="og:image" content="https://bookmygcc.com/assets/og-image.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@300;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: "command centre with a ledger" - dark Night command bands (header, hero, cohort, footer) frame light Paper ledger sections with hairline rules. Single deliberate theme. */
+:root{color-scheme:light;
+--night:#0B131B;--orbit:#14303A;--signal:#2FBFA6;--deep:#0E8A78;--violet:#7C6BE8;--mint:#8CF2E1;--paper:#F4F6F7;
+--card:#FFFFFF;--ink:#0B131B;--ink-2:#33434C;--muted:#55666F;--rule:#D3DCDF;--on-dark:#FFFFFF;--on-dark-2:#D6E2E5;--on-dark-3:#9FB3B9;
+--f-display:Sora,"Segoe UI",system-ui,sans-serif;--f-body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+body{margin:0;background:var(--card);color:var(--ink);font-family:var(--f-body)}
+html{scroll-behavior:smooth}
+a{color:var(--deep)}a:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--violet);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-sizing:border-box}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--deep)}
+.h2{font-family:var(--f-display);font-weight:600;font-size:clamp(26px,3.2vw,38px);line-height:1.18;margin:0;color:var(--ink);text-wrap:balance;letter-spacing:-.01em}
+.h3{font-family:var(--f-display);font-weight:600;font-size:18px;line-height:1.3;margin:0;color:var(--ink)}
+.p{margin:0;font-size:16px;line-height:1.65;color:var(--ink-2);max-width:68ch}
+.small{font-size:14px;color:var(--muted)}
+.card{border:1px solid var(--rule);border-radius:6px;padding:22px;background:var(--card);display:flex;flex-direction:column;gap:10px;box-sizing:border-box;min-width:0}
+.card.soon{border-style:dashed;background:transparent}
+.ph{border:1px dashed var(--violet);border-radius:6px;background:var(--card);display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--f-mono);font-size:12px;color:var(--violet);padding:12px;box-sizing:border-box}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:6px;background:var(--signal);color:var(--night);font-weight:600;font-size:16px;text-decoration:none;font-family:var(--f-body);text-align:center;transition:background .15s}
+.btn:hover{color:var(--night);background:var(--mint)}
+.btn-sm{min-height:42px;font-size:14px;padding:0 16px}
+.btn-light{background:var(--card);color:var(--night)}
+.tag{font-family:var(--f-mono);font-size:11px;padding:3px 8px;border-radius:3px;border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap;letter-spacing:.02em}
+.tag.live{background:var(--deep);border-color:var(--deep);color:var(--on-dark)}
+.tag.dev{border-style:dashed;border-color:var(--violet);color:var(--violet)}
+.idx{font-family:var(--f-mono);font-size:13px;color:var(--deep);border-bottom:1px solid var(--rule);padding-bottom:8px}
+.lbl{font-size:14px;font-weight:500;color:var(--ink)}
+.in{min-height:44px;border:1px solid var(--rule);border-radius:6px;padding:0 12px;font-size:15px;font-family:var(--f-body);background:var(--card);color:var(--ink);width:100%;box-sizing:border-box}
+.in:focus{border-color:var(--deep)}
+.site-head{background:var(--night);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;border-bottom:1px solid var(--orbit)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--night)}
+.site-head nav a{color:var(--on-dark-2);text-decoration:none}.site-head nav a:hover{color:var(--mint)}
+.hero{padding-block:88px 80px;background:radial-gradient(ellipse at 75% 40%,var(--orbit) 0%,var(--night) 62%);color:var(--on-dark)}
+.hero h1{color:var(--on-dark);text-wrap:balance;letter-spacing:-.02em}
+.hero .eyebrow{color:var(--mint)}
+.hero .lede{font-size:20px;color:var(--on-dark-2)}
+.hero .small{color:var(--on-dark-3)}
+.orbit-wrap{flex:1 1 380px;min-width:0;display:flex;justify-content:center}
+.orbit{width:100%;max-width:440px;height:auto}
+.spin{transform-origin:200px 170px;animation:spin 60s linear infinite}.spin.b{animation-direction:reverse;animation-duration:80s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation:none}html{scroll-behavior:auto}}
+.setup{border-left:3px solid var(--signal)}
+section[id]{scroll-margin-top:80px}
+.eoi{flex:1 1 460px;min-width:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:24px;box-sizing:border-box}
+.fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+.hs{flex:0 1 300px;min-width:220px;max-width:100%;margin:0}
+.hs img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:6px;border:1px solid var(--rule)}
+footer a{color:var(--on-dark)!important;text-decoration:none}footer a:hover{color:var(--mint)!important}
+section[style*="var(--night)"] .eyebrow{color:var(--mint)!important}
+.social{display:flex;gap:10px;margin-top:6px}
+.social a,.social .soon-ico{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--on-dark-3);font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--on-dark)!important}
+.social a:hover{border-color:var(--mint)}
+.social .soon-ico{border-style:dashed;opacity:.55}
+.to-top{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 16px));bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:25;background:var(--night);color:var(--on-dark);border:1px solid var(--signal);border-radius:6px;padding:10px 14px;font-family:var(--f-mono);font-size:12px;text-decoration:none;opacity:0;pointer-events:none;transition:opacity .2s}
+.to-top.show{opacity:1;pointer-events:auto}.to-top:hover{color:var(--mint)}
+
+.about{background:var(--night);color:var(--on-dark-2);padding-block:80px}
+.about-grid{display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:center;max-width:960px}
+.about-ph{margin:0;max-width:100%}
+.about-ph img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:4px;filter:grayscale(1) contrast(1.05);transition:filter .5s}
+.about-ph:hover img{filter:none}
+.about-body{display:flex;flex-direction:column;gap:16px;min-width:0}
+.about .eyebrow{color:var(--mint)}
+.about blockquote{margin:0;font-family:var(--f-display);font-weight:300;font-size:clamp(21px,2.4vw,28px);line-height:1.25;letter-spacing:-.02em;color:var(--on-dark);text-wrap:balance}
+.about blockquote::before{content:"\201C";display:block;font-size:56px;line-height:.6;color:var(--signal);margin-bottom:8px}
+.about .who{display:flex;flex-direction:column;gap:4px;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--on-dark-3);padding-bottom:8px;border-bottom:1px solid var(--orbit)}
+.about .who b{font-family:var(--f-display);font-size:19px;letter-spacing:0;color:var(--on-dark);font-weight:600}
+.about .p{color:var(--on-dark-2);font-size:15px}
+.about .certs{display:flex;flex-wrap:wrap;gap:8px}
+.about .certs span{font-family:var(--f-mono);font-size:11px;padding:4px 9px;border-radius:3px;border:1px solid var(--orbit);color:var(--on-dark-2)}
+.about .edu{margin:0;font-size:13px;color:var(--on-dark-3)}
+.about .li{color:var(--mint);font-weight:500;text-decoration:none;font-size:15px}
+.site-foot{background:var(--night);color:var(--on-dark-2);padding-block:64px 28px;border-top:1px solid var(--orbit)}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:40px;padding-bottom:40px}
+.foot-brand{display:flex;flex-direction:column;gap:12px;min-width:0}
+.foot-tag{margin:0;font-family:var(--f-display);font-size:16px;font-weight:600;color:var(--on-dark)}
+.foot-desc{margin:0;font-size:14px;line-height:1.55;color:var(--on-dark-3);max-width:34ch}
+.foot-col{display:flex;flex-direction:column;gap:10px;font-size:14px;min-width:0}
+.foot-col h3{margin:0 0 4px;font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mint)}
+.foot-col address{font-style:normal;line-height:1.6;color:var(--on-dark-2)}
+.sel{user-select:all;color:var(--on-dark)}
+.ph-txt{font-family:var(--f-mono);font-size:12px;color:var(--on-dark-3)}
+.foot-bar{display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid var(--orbit);font-size:13px;color:var(--on-dark-3)}
+.foot-legal{display:flex;gap:18px}
+@media (max-width:900px){.about-grid{grid-template-columns:1fr;gap:32px}.about-ph{max-width:180px}.foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}}
+@media (max-width:480px){.foot-grid{grid-template-columns:1fr}}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--night);color:#fff;padding:8px 12px;border-radius:6px}.skip:focus{left:16px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.form-status:empty{display:none}.form-status.ok{color:var(--deep);font-weight:600}.form-status.err{color:#A23B2A;font-weight:600}
+button[disabled]{opacity:.6;cursor:wait!important}
+</style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="/assets/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+
+<div style="font-family: 'IBM Plex Sans', sans-serif; color: var(--ink); background: var(--card); width: 100%;">
+
+<header class="site-head" id="top">
+<div class="wrap" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; min-height: 72px;">
+<div style="display: flex; align-items: center; gap: 10px;">
+<img src="/assets/logo-on-dark.svg" alt="bookmyGCC" width="182" height="29" style="display:block;height:29px;width:auto;align-self:flex-start">
+</div>
+<nav aria-label="Page sections" style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px;">
+<a href="#why">Why now</a><a href="#offer">Diagnostic</a><a href="#how">How we work</a><a href="#partners">Partner with us</a><a href="#about">About</a>
+</nav>
+<a class="btn btn-sm" href="#talk">Request a conversation</a>
+</div>
+</header>
+<main id="main">
+
+<section class="hero">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 22px; min-width: 0;">
+<span class="eyebrow">AI governance and AI security advisory for Global Capability Centres</span>
+<h1 style="font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(34px, 5vw, 56px); line-height: 1.1; margin: 0;">Govern AI the way your GCC actually reports.</h1>
+<p class="p lede">Move faster with AI, without losing control.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+<a class="btn" href="#talk">Request a confidential 20-minute conversation</a>
+</div>
+<p class="p small">For India Global Capability Centres (GCCs), and US enterprises planning one.</p>
+</div>
+<div class="orbit-wrap" aria-hidden="true"><svg viewBox="0 -14 400 340" class="orbit">
+<defs><linearGradient id="og" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#7C6BE8"/><stop offset="1" stop-color="#2FBFA6"/></linearGradient>
+<radialGradient id="core"><stop offset="0" stop-color="#8CF2E1"/><stop offset=".55" stop-color="#2FBFA6" stop-opacity=".35"/><stop offset="1" stop-color="#2FBFA6" stop-opacity="0"/></radialGradient></defs>
+<circle cx="200" cy="170" r="150" fill="none" stroke="#2B4C57" stroke-width="1"/>
+<g stroke="#3E6A74" stroke-width="1" stroke-dasharray="3 5"><line x1="200" y1="20" x2="200" y2="160"/><line x1="70" y1="245" x2="191" y2="175"/><line x1="330" y1="245" x2="209" y2="175"/></g>
+<g class="spin a"><ellipse cx="200" cy="170" rx="132" ry="50" transform="rotate(-24 200 170)" fill="none" stroke="url(#og)" stroke-width="3"/><circle cx="320" cy="117" r="6" fill="#2FBFA6"/></g>
+<g class="spin b"><ellipse cx="200" cy="170" rx="132" ry="50" transform="rotate(24 200 170)" fill="none" stroke="url(#og)" stroke-width="3" opacity=".8"/><circle cx="80" cy="117" r="6" fill="#7C6BE8"/></g>
+<circle cx="200" cy="170" r="42" fill="url(#core)"/><circle cx="200" cy="170" r="10" fill="#8CF2E1"/>
+<g fill="#0B131B" stroke="#8CF2E1" stroke-width="2"><circle cx="200" cy="20" r="7"/><circle cx="70" cy="245" r="7"/><circle cx="330" cy="245" r="7"/></g>
+<g font-family="IBM Plex Mono, monospace" font-size="11" fill="#B9CDD2" letter-spacing="1" text-anchor="middle"><text x="200" y="0">HQ RISK</text><text x="70" y="274">REGULATORS</text><text x="330" y="274">LOCAL BOARD</text></g>
+</svg></div>
+</div>
+</section>
+
+<section id="why" style="padding: 80px 0;">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px;">
+<span class="eyebrow">Why now</span>
+<h2 class="h2">AI adoption is outpacing governance, visibility and ownership.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+<div class="card"><span class="idx" aria-hidden="true">01</span><h3 class="h3">Three reporting lines, one AI programme.</h3><p class="p" style="font-size: 15px;">HQ risk, Indian regulators (DPDP) and your local board each ask different questions about the same models.</p></div>
+<div class="card"><span class="idx" aria-hidden="true">02</span><h3 class="h3">Shadow AI is already in production.</h3><p class="p" style="font-size: 15px;">Copilots, coding assistants and API models arrive faster than any register can record them.</p></div>
+<div class="card"><span class="idx" aria-hidden="true">03</span><h3 class="h3">No audit-ready evidence.</h3><p class="p" style="font-size: 15px;">Point-in-time reviews go stale within weeks.</p></div>
+<div class="card"><span class="idx" aria-hidden="true">04</span><h3 class="h3">No peer benchmark.</h3><p class="p" style="font-size: 15px;">Nobody in the room can say if you are ahead or behind peer GCCs.</p></div>
+</div>
+</div>
+</section>
+
+<section id="offer" style="padding: 80px 0; background: var(--paper);">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px;">
+<span class="eyebrow">What we do · the entry offer</span>
+<h2 class="h2">Board-Ready in 15 Days: the GCC AI Governance Diagnostic</h2>
+<p class="p">One fixed-scope engagement that gives your board a defensible answer, built for how Global Capability Centres (GCCs) actually report.</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+<div class="card"><span class="tag" style="align-self: flex-start;">Covers</span><h3 class="h3">AI governance and responsible AI</h3><p class="p" style="font-size: 15px;">Ownership, AI inventory including shadow AI, controls and assurance.</p></div>
+<div class="card"><span class="tag" style="align-self: flex-start;">Covers</span><h3 class="h3">AI security and agentic AI readiness</h3><p class="p" style="font-size: 15px;">Access, permissions, data exposure and human oversight for assistants and agents.</p></div>
+<div class="card soon"><span class="tag" style="align-self: flex-start;">What follows</span><h3 class="h3">The GCC operating model for AI</h3><p class="p" style="font-size: 15px;">Delivered through advisory and executive workshops once the diagnostic sets the baseline.</p></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<div class="card" style="flex: 2 1 420px;">
+<h3 class="h3">What you receive</h3>
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.5; color: var(--ink-2);">
+<li>Maturity score on the 5-level GCC AI Governance Maturity Ladder</li>
+<li>Control map across HQ, Indian regulators and the local board, aligned with NIST AI RMF, ISO/IEC 42001 and the EU AI Act where they apply</li>
+<li>Cost-of-governance and exposure view, and your peer position</li>
+<li>One-page board summary, 10-slide deck and a 90-day roadmap</li>
+</ul>
+</div>
+<div class="card" style="flex: 1 1 260px;">
+<h3 class="h3">Timeline</h3>
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;">
+<div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--rule); padding-bottom: 6px;"><span>Day 1</span><span>Kick-off</span></div>
+<div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--rule); padding-bottom: 6px;"><span>Day 10</span><span>Interim heatmap</span></div>
+<div style="display: flex; justify-content: space-between;"><span>Day 15</span><span>Full board pack</span></div>
+</div>
+<p class="p" style="font-size: 14px; color: var(--muted);">Fixed fee, scoped to your GCC's size and stage.</p>
+</div>
+</div>
+<div><a class="btn" href="#talk">Request a confidential 20-minute conversation</a></div>
+</div>
+</section>
+
+<section style="padding: 64px 0;">
+<div class="wrap">
+<div class="card setup" style="flex-direction: row; flex-wrap: wrap; align-items: center; gap: 24px; padding: 32px;">
+<div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+<span class="eyebrow">Setting up a GCC?</span>
+<h2 class="h2" style="font-size: clamp(22px, 2.6vw, 28px);">Planning an India Global Capability Centre? Build AI security, governance and compliance in from day one.</h2>
+<p class="p">Before the first model goes live, instead of retrofitting controls later. The same 15 days, framed as a day-one governance blueprint for your planned centre.</p>
+</div>
+<a class="btn" href="#talk">Request a confidential 20-minute conversation</a>
+</div>
+</div>
+</section>
+
+<section id="how" style="padding: 80px 0; background: var(--paper);">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px;">
+<span class="eyebrow">How we work</span>
+<h2 class="h2">Discover → Assess → Govern → Monitor → Improve</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px;">
+<div class="card"><span class="tag live" style="align-self: flex-start;">Live · Diagnostic</span><h3 class="h3">Discover</h3><p class="p" style="font-size: 14px;">Find every AI system, including shadow AI.</p></div>
+<div class="card"><span class="tag live" style="align-self: flex-start;">Live · Diagnostic</span><h3 class="h3">Assess</h3><p class="p" style="font-size: 14px;">Score maturity and map controls to all three reporting lines.</p></div>
+<div class="card"><span class="tag live" style="align-self: flex-start;">Live · Advisory</span><h3 class="h3">Govern</h3><p class="p" style="font-size: 14px;">Set ownership, policy and the operating model.</p></div>
+<div class="card soon"><span class="tag dev" style="align-self: flex-start;">In development</span><h3 class="h3">Monitor</h3><p class="p" style="font-size: 14px;">Continuous evidence instead of point-in-time reviews.</p></div>
+<div class="card soon"><span class="tag dev" style="align-self: flex-start;">In development</span><h3 class="h3">Improve</h3><p class="p" style="font-size: 14px;">Peer benchmarking that shows where to invest next.</p></div>
+</div>
+</div>
+</section>
+
+<section style="padding: 80px 0;">
+<div class="wrap" style="display: flex; flex-direction: column; gap: 28px;">
+<span class="eyebrow">Executive outcomes</span>
+<h2 class="h2">What changes for your leadership team</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+<div class="card"><h3 class="h3">Visibility</h3><p class="p" style="font-size: 15px;">A complete AI inventory, shadow AI included.</p></div>
+<div class="card"><h3 class="h3">Responsible adoption</h3><p class="p" style="font-size: 15px;">Controls mapped once, reported three ways.</p></div>
+<div class="card"><h3 class="h3">A decision-ready roadmap</h3><p class="p" style="font-size: 15px;">A 90-day plan with owners and priorities.</p></div>
+<div class="card"><h3 class="h3">Confidence to scale</h3><p class="p" style="font-size: 15px;">A board summary that answers "are we ahead or behind?"</p></div>
+</div>
+</div>
+</section>
+
+<section style="padding: 64px 0; background: var(--night); color: var(--on-dark);">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+<div style="flex: 1 1 560px; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+<span class="eyebrow" style="color: var(--rule);">Founding cohort</span>
+<h2 class="h2" style="color: var(--on-dark); font-size: clamp(22px, 2.6vw, 30px);">Five GCCs. Founding terms.</h2>
+<p class="p" style="color: var(--on-dark-2);">We are working with a founding cohort of 5 Global Capability Centres on founding terms, in return for feedback and consent to include anonymised results in the first GCC-specific AI governance benchmark.</p>
+</div>
+<a class="btn btn-light" href="#talk">Ask about founding terms</a>
+</div>
+</section>
+
+<section id="about" class="about">
+<div class="wrap about-grid">
+<figure class="about-ph"><img src="/assets/saravanan-jayaraman.jpg" alt="Saravanan Jayaraman, Founder, bookmyGCC" width="640" height="640"></figure>
+<div class="about-body">
+<span class="eyebrow">About</span>
+<blockquote>Close enough to the technology to know how it behaves. Experienced enough to know what the board needs to hear.</blockquote>
+<div class="who"><b>Saravanan Jayaraman</b><span>Founder · two decades across HPE, Concentrix and OpSec Security</span></div>
+<p class="p">Set up and led India capability teams for global enterprises, and now builds AI security and governance products from the ground up.</p>
+<div class="certs"><span>EXIN AI Security</span><span>EXIN AI Compliance</span><span>ISO/IEC 27001</span><span>Data Protection Officer</span></div>
+<a class="li" href="https://www.linkedin.com/in/sjeleven11/">Full profile on LinkedIn ↗</a>
+</div>
+</div>
+</section>
+
+<section style="padding: 40px 0; border-top: 1.5px solid var(--rule); border-bottom: 1.5px solid var(--rule);">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline;">
+<span class="eyebrow">Platform vision</span>
+<p class="p" style="flex: 1 1 600px;"><strong>Live today:</strong> advisory and the 15-day diagnostic. <strong>In development:</strong> the bookmyGCC platform for continuous governance and peer benchmarking. We will say when it is ready, not before.</p>
+</div>
+</section>
+
+<section id="partners" style="padding: 72px 0;">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 24px 48px; align-items: flex-start;">
+<div style="flex: 1 1 420px; display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+<span class="eyebrow">Partner with us</span>
+<h2 class="h3" style="font-size: 22px;">We work alongside selected AI security and governance product vendors.</h2>
+<p class="p">Where a tool fits a GCC's controls and reporting lines, we help evaluate, deploy and govern it. If you build or resell AI security, governance or data protection products, tell us about it here. The founder reads every submission and replies within 3 business days.</p>
+<div class="ph" style="min-height: 96px; margin-top: 8px;">Placeholder · partner logos appear here once each partner agrees to be named</div>
+</div>
+<form class="eoi js-lead" data-kind="partner" aria-label="Partner expression of interest" novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
+<div class="h3" style="grid-column: 1 / -1; font-size: 17px;">Partner expression of interest</div>
+<div class="fld"><label class="lbl" for="p-name">Name</label><input class="in" id="p-name" name="name" required maxlength="200" type="text" autocomplete="name"></div>
+<div class="fld"><label class="lbl" for="p-email">Work email</label><input class="in" id="p-email" name="email" required maxlength="200" type="email" autocomplete="email"></div>
+<div class="fld"><label class="lbl" for="p-co">Company</label><input class="in" id="p-co" name="company" required maxlength="200" type="text" autocomplete="organization"></div>
+<div class="fld"><label class="lbl" for="p-web">Company website</label><input class="in" id="p-web" name="website" maxlength="200" type="url" placeholder="https://"></div>
+<div class="fld"><label class="lbl" for="p-type">Partnership type</label><select class="in" id="p-type" name="type"><option>Product vendor</option><option>Reseller or channel partner</option><option>System integrator or consultancy</option><option>Other</option></select></div>
+<div class="fld"><label class="lbl" for="p-cat">Product area</label><select class="in" id="p-cat" name="area"><option>AI security</option><option>AI governance or GRC</option><option>Data protection and privacy</option><option>Identity and access</option><option>Other</option></select></div>
+<div class="fld" style="grid-column: 1 / -1;"><label class="lbl" for="p-msg">What you offer and who you serve</label><textarea class="in" id="p-msg" name="message" maxlength="2000" rows="3" style="padding: 10px 12px; min-height: 80px;"></textarea><span class="small" style="font-size: 13px;">Please do not include confidential details. We can sign an NDA before deeper discussions.</span></div>
+<div style="grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start;"><input id="p-consent" name="consent" required type="checkbox" style="width: 20px; height: 20px; margin-top: 2px;"><label for="p-consent" style="font-size: 14px; line-height: 1.5; color: var(--ink-2);">I agree that bookmyGCC may use these details to respond, as described in the <a href="/privacy">privacy notice</a>.</label></div>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAFx5dZmLYQc8KUxC" data-action="partner" data-theme="light" style="grid-column: 1 / -1;"></div>
+<div style="grid-column: 1 / -1;"><button class="btn" type="submit" style="border: 0; cursor: pointer; width: 100%;">Send expression of interest</button></div>
+<p class="small form-status" role="status" aria-live="polite" style="grid-column: 1 / -1; margin: 0; font-size: 14px;"></p>
+<p class="small" style="grid-column: 1 / -1; margin: 0; font-size: 13px;">Protected by Cloudflare Turnstile. Goes to the founder, logged separately from client requests.</p>
+</form>
+</div>
+</section>
+<section id="talk" style="padding: 88px 0; background: var(--paper);">
+<div class="wrap" style="display: flex; flex-wrap: wrap; gap: 48px;">
+<div style="flex: 1 1 380px; display: flex; flex-direction: column; gap: 16px; min-width: 0;">
+<span class="eyebrow">Request a conversation</span>
+<h2 class="h2">Request a confidential 20-minute conversation</h2>
+<p class="p">Tell us where you are. After you send this, you can pick a time straight away, or we will reply within 1 business day.</p>
+<div class="card" style="gap: 12px;"><span class="eyebrow">Prefer to pick a time now?</span><p class="p" style="font-size: 15px;">20-minute slots in IST hours and US mornings.</p><a class="btn" href="https://calendar.app.google/4gYzZ4GS4Y5YPeVNA" style="align-self: flex-start;">Choose a time ↗</a></div>
+</div>
+<form style="flex: 1 1 480px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; background: var(--card); border: 1.5px solid var(--rule); border-radius: 12px; padding: 28px; box-sizing: border-box;" aria-label="Request a conversation" class="js-lead" data-kind="client" novalidate>
+<div class="hp" aria-hidden="true"><label>Leave this empty<input name="company_url" tabindex="-1" autocomplete="off"></label></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-name">Name</label><input class="in" id="f-name" name="name" required maxlength="200" type="text" autocomplete="name"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-email">Work email</label><input class="in" id="f-email" name="email" required maxlength="200" type="email" autocomplete="email"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-org">Organisation</label><input class="in" id="f-org" name="organisation" required maxlength="200" type="text" autocomplete="organization"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-role">Role</label><input class="in" id="f-role" name="role" maxlength="200" type="text" autocomplete="organization-title"></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-stage">GCC stage</label><select class="in" id="f-stage" name="stage"><option>Planning an India GCC</option><option>Under 500 people</option><option>500 to 1,000</option><option>1,000 to 3,000</option><option>3,000+</option></select></div>
+<div style="display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-area">Challenge area</label><select class="in" id="f-area" name="area"><option>AI governance</option><option>AI security and agents</option><option>Operating model</option><option>Setting up a new GCC</option><option>Not sure yet</option></select></div>
+<div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px;"><label class="lbl" for="f-msg">Message (optional)</label><textarea class="in" id="f-msg" name="message" maxlength="2000" rows="3" style="padding: 10px 12px; min-height: 88px;"></textarea><span style="font-size: 13px; color: var(--muted);">Please do not include confidential details.</span></div>
+<div style="grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start;"><input id="f-consent" name="consent" required type="checkbox" style="width: 20px; height: 20px; margin-top: 2px;"><label for="f-consent" style="font-size: 14px; line-height: 1.5; color: var(--ink-2);">I agree that bookmyGCC may use these details to respond to my request, as described in the <a href="/privacy">privacy notice</a>.</label></div>
+<div class="cf-turnstile" data-sitekey="0x4AAAAAAFx5dZmLYQc8KUxC" data-action="client" data-theme="light" style="grid-column: 1 / -1;"></div>
+<p class="small" style="grid-column: 1 / -1; margin: 0;">Protected by Cloudflare Turnstile. Most visitors never see a challenge.</p>
+<div style="grid-column: 1 / -1;"><button class="btn" type="submit" style="border: 0; cursor: pointer; width: 100%;">Request my conversation</button></div>
+<p class="small form-status" role="status" aria-live="polite" style="grid-column: 1 / -1; margin: 0; font-size: 14px;"></p>
+</form>
+</div>
+</section>
+
+</main>
+<footer class="site-foot">
+<div class="wrap">
+<div class="foot-grid">
+<div class="foot-brand">
+<img src="/assets/logo-on-dark.svg" alt="bookmyGCC" width="182" height="29" style="display:block;height:29px;width:auto;align-self:flex-start">
+<p class="foot-tag">HQ to GCC. One governed orbit.</p>
+<p class="foot-desc">AI governance and AI security advisory for Global Capability Centres.</p>
+<div class="social" aria-label="Social media">
+<a href="https://www.linkedin.com/in/sjeleven11/" aria-label="LinkedIn">in</a>
+<span class="soon-ico" title="Placeholder, add when the account is live">X</span>
+<span class="soon-ico" title="Placeholder, add when the account is live">YT</span>
+<span class="soon-ico" title="Placeholder, add when the account is live">IG</span>
+</div>
+</div>
+<nav class="foot-col" aria-label="Explore"><h3>Explore</h3><a href="#why">Why now</a><a href="#offer">Diagnostic</a><a href="#how">How we work</a><a href="#partners">Partner with us</a><a href="#about">About</a></nav>
+<nav class="foot-col" aria-label="Insights"><h3>Insights</h3><a href="https://www.linkedin.com/newsletters/gcc-ai-compass-7485749692337647616">GCC AI Compass newsletter</a><a href="https://www.linkedin.com/in/sjeleven11/">Founder on LinkedIn</a></nav>
+<div class="foot-col"><h3>Contact</h3><a class="sel" href="mailto:hello@bookmygcc.com">hello@bookmygcc.com</a><span class="ph-txt">Phone: [to confirm with CIN]</span><address>#198, CMH Road, 2nd Floor, Suite #3752<br>Indiranagar, Bengaluru<br>Karnataka 560038, India</address></div>
+</div>
+<div class="foot-bar">
+<span>© 2026 bookmyGCC. All rights reserved.</span>
+<span class="ph-txt">Legal entity name: [after incorporation] · CIN: [pending]</span>
+<span class="foot-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></span>
+</div>
+</div>
+</footer>
+<a href="#top" class="to-top" id="to-top" aria-label="Back to top">↑ Top</a>
+
+
+</div>
+</body>
+</html>
