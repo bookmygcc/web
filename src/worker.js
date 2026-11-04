@@ -11,8 +11,8 @@ const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,24}$/;
 const FREE_MAIL = new Set(['gmail.com','googlemail.com','yahoo.com','yahoo.in','yahoo.co.in','ymail.com','outlook.com','hotmail.com','live.com','msn.com','aol.com','icloud.com','me.com','proton.me','protonmail.com','rediffmail.com','gmx.com','mail.com','zoho.com','yandex.com']);
 
 const FIELDS = {
-  client: { required: ['first_name', 'last_name', 'email', 'company', 'role', 'stage'], optional: ['area', 'message'] },
-  partner: { required: ['first_name', 'last_name', 'email', 'company'], optional: ['website', 'type', 'area', 'message'] },
+  client: { required: ['first_name', 'last_name', 'email', 'company', 'role', 'stage'], optional: ['area', 'message', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'referrer'] },
+  partner: { required: ['first_name', 'last_name', 'email', 'company'], optional: ['website', 'type', 'area', 'message', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'referrer'] },
 };
 
 function json(body, status = 200) {

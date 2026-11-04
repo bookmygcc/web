@@ -1,6 +1,24 @@
 // bookmyGCC site script: back-to-top button and lead forms (client + partner).
 (function(){var b=document.getElementById('to-top');function u(){b.classList.toggle('show',window.scrollY>600)}window.addEventListener('scroll',u,{passive:true});u();b.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})})})();
 
+
+// First-touch source capture: UTM tags and the referring site's host only (no path, no query).
+(function () {
+  var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+  var store = null;
+  try { store = window.sessionStorage; } catch (e) { store = null; }
+  function read() { try { return JSON.parse(store.getItem('bmg_src') || 'null'); } catch (e) { return null; } }
+  var cur = read();
+  if (!cur) {
+    cur = {};
+    var q = new URLSearchParams(window.location.search);
+    KEYS.forEach(function (k) { var v = (q.get(k) || '').trim().slice(0, 100); if (v) cur[k] = v; });
+    try { var h = document.referrer ? new URL(document.referrer).hostname : ''; if (h && h !== window.location.hostname) cur.referrer = h.slice(0, 100); } catch (e) { /* ignore */ }
+    try { if (store) store.setItem('bmg_src', JSON.stringify(cur)); } catch (e) { /* ignore */ }
+  }
+  window.__bmgSource = cur;
+})();
+
 (function () {
   var MSG = {
     client: 'Thank you. Your request has reached the founder. You can pick a time now using "Choose a time", or we will reply within 1 business day.',
@@ -30,6 +48,8 @@
       new FormData(form).forEach(function (v, k) { data[k] = typeof v === 'string' ? v.trim() : v; });
       data.consent = !!form.querySelector('[name="consent"]').checked;
       data.kind = form.dataset.kind;
+      var src = window.__bmgSource || {};
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'referrer'].forEach(function (k) { if (src[k]) data[k] = src[k]; });
       data.token = data['cf-turnstile-response'] || '';
       delete data['cf-turnstile-response'];
       if (!data.token) { setStatus(status, 'Please wait a moment for the security check to finish, then try again.', 'err'); return; }
