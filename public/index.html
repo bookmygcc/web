@@ -79,6 +79,12 @@ section[style*="var(--night)"] .eyebrow{color:var(--mint)!important}
 .kural .ta span{display:block;white-space:nowrap}
 .kural .en{font-size:14px;line-height:1.4;color:var(--on-dark);margin:0}
 .kural .ref{font-family:var(--f-mono);font-size:10.5px;color:var(--on-dark-3);margin:0}
+.pr-list{display:grid;grid-template-columns:repeat(2,minmax(0,388px));gap:16px;margin-top:20px;justify-content:start}
+@media (max-width:760px){.pr-list{grid-template-columns:1fr;gap:12px}}
+.pr{display:flex;gap:14px;align-items:flex-start;border-top:1px solid rgba(140,242,225,.28);padding-top:12px}
+.pr-n{font-family:var(--f-mono);font-size:11px;color:var(--signal);letter-spacing:.08em;padding-top:3px}
+.pr h3{font-family:var(--f-display);font-weight:600;font-size:16px;line-height:1.3;margin:0 0 4px;color:var(--on-dark)}
+.pr p{font-size:14px;line-height:1.45;margin:0;color:var(--on-dark-2)}
 .social{display:flex;gap:10px;margin-top:6px}
 .social a,.social .soon-ico{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1px solid var(--on-dark-3);font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--on-dark)!important}
 .social a:hover{border-color:var(--mint)}
@@ -250,11 +256,15 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <p class="src"><i>Thirukkural</i> (classic Tamil language text) · <i>Thiruvalluvar</i> (Tamil poet and philosopher)</p>
 </div>
 <figure class="kural">
-<span class="role">How we work</span>
+<span class="role">01 · Think first</span>
 <blockquote class="ta" lang="ta" style="margin:0"><span>எண்ணித் துணிக கருமம் துணிந்தபின்</span><span>எண்ணுவம் என்பது இழுக்கு.</span></blockquote>
 <p class="en">Think first, then commit.</p>
 <figcaption class="ref">Thirukkural 467</figcaption>
 </figure>
+</div>
+<div class="wrap pr-list" role="list">
+<div class="pr" role="listitem"><span class="pr-n">02</span><div><h3>Trust by Design</h3><p>We build trust in from day one.</p></div></div>
+<div class="pr" role="listitem"><span class="pr-n">03</span><div><h3>Build Capability, Not Dependency</h3><p>We leave your team stronger than we found it.</p></div></div>
 </div>
 </section>
 
