@@ -434,7 +434,7 @@ function show(idx){
   },220);
 }
 function next(){ if(paused) return; i=(i+1)%slides.length; show(i); }
-function start(){ if(reduce) return; stop(); timer=setInterval(next,2000); }
+function start(){ if(reduce) return; stop(); timer=setInterval(next,4000); }
 function stop(){ if(timer){clearInterval(timer); timer=null;} }
 dots.forEach(function(d){ d.addEventListener('click',function(){ i=parseInt(d.getAttribute('data-i'),10)||0; show(i); }); });
 var heroSection=rotator.closest('.hero');
