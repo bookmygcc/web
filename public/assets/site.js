@@ -69,3 +69,45 @@
     });
   });
 })();
+
+
+// Hero rotator: cycles 3 short messages, pauses on hover/focus, respects reduced motion.
+(function(){
+var slides=[
+  {h:"Govern AI the way your GCC actually reports.",p:"Move faster with AI, without losing control."},
+  {h:"Your GCC already uses AI.",p:"Assistants, copilots and agents are in daily work, often before any policy exists."},
+  {h:"Three audiences, one question.",p:"The HQ, Indian regulators and your board all ask: who is accountable for this AI?"}
+];
+var rotator=document.getElementById('heroRotator'), hEl=document.getElementById('heroHeadline'), pEl=document.getElementById('heroLede');
+var dots=document.querySelectorAll('#main .hero-dots .dot');
+if(!rotator||!hEl||!pEl||!dots.length) return;
+var i=0, timer=null, paused=false;
+var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function show(idx){
+  rotator.style.opacity='0';
+  setTimeout(function(){
+    hEl.textContent=slides[idx].h;
+    pEl.textContent=slides[idx].p;
+    dots.forEach(function(d,n){
+      var on=n===idx;
+      d.classList.toggle('active',on);
+      d.setAttribute('aria-selected', on?'true':'false');
+      d.style.background=on?'var(--signal)':'var(--on-dark-3)';
+      d.style.opacity=on?'1':'.5';
+    });
+    rotator.style.opacity='1';
+  },220);
+}
+function next(){ if(paused) return; i=(i+1)%slides.length; show(i); }
+function start(){ if(reduce) return; stop(); timer=setInterval(next,4000); }
+function stop(){ if(timer){clearInterval(timer); timer=null;} }
+dots.forEach(function(d){ d.addEventListener('click',function(){ i=parseInt(d.getAttribute('data-i'),10)||0; show(i); }); });
+var heroSection=rotator.closest('.hero');
+if(heroSection){
+  heroSection.addEventListener('mouseenter',function(){paused=true;});
+  heroSection.addEventListener('mouseleave',function(){paused=false;});
+  heroSection.addEventListener('focusin',function(){paused=true;});
+  heroSection.addEventListener('focusout',function(){paused=false;});
+}
+start();
+})();
