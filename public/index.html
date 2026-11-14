@@ -40,6 +40,9 @@ a{color:var(--deep)}a:hover{color:var(--ink)}
 .tag{font-family:var(--f-mono);font-size:11px;padding:3px 8px;border-radius:3px;border:1px solid var(--rule);color:var(--ink-2);white-space:nowrap;letter-spacing:.02em}
 .tag.live{background:var(--deep);border-color:var(--deep);color:var(--on-dark)}
 .tag.dev{border-style:dashed;border-color:var(--violet);color:var(--violet)}
+.step-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.step-n{font-family:var(--f-mono);font-weight:700;font-size:26px;color:var(--signal);line-height:1}
+.card.soon .step-n{color:var(--muted)}
 .idx{font-family:var(--f-mono);font-size:13px;color:var(--deep);border-bottom:1px solid var(--rule);padding-bottom:8px}
 .lbl{font-size:14px;font-weight:500;color:var(--ink)}
 .in{min-height:44px;border:1px solid var(--rule);border-radius:6px;padding:0 12px;font-size:15px;font-family:var(--f-body);background:var(--card);color:var(--ink);width:100%;box-sizing:border-box}
@@ -244,13 +247,13 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <section id="how" style="padding: 80px 0; background: var(--paper);">
 <div class="wrap" style="display: flex; flex-direction: column; gap: 28px;">
 <span class="eyebrow">How we work</span>
-<h2 class="h2">Discover → Assess → Govern → Monitor → Improve</h2>
+<h2 class="h2">A five-phase method, from discovery to continuous improvement.</h2>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px;">
-<div class="card"><span class="tag live" style="align-self: flex-start;">Live · Diagnostic</span><h3 class="h3">Discover</h3><p class="p" style="font-size: 14px;">Find every AI system, including shadow AI.</p></div>
-<div class="card"><span class="tag live" style="align-self: flex-start;">Live · Diagnostic</span><h3 class="h3">Assess</h3><p class="p" style="font-size: 14px;">Score maturity and map controls to all three reporting lines.</p></div>
-<div class="card"><span class="tag live" style="align-self: flex-start;">Live · Advisory</span><h3 class="h3">Govern</h3><p class="p" style="font-size: 14px;">Set ownership, policy and the operating model.</p></div>
-<div class="card soon"><span class="tag dev" style="align-self: flex-start;">In development</span><h3 class="h3">Monitor</h3><p class="p" style="font-size: 14px;">Continuous evidence instead of point-in-time reviews.</p></div>
-<div class="card soon"><span class="tag dev" style="align-self: flex-start;">In development</span><h3 class="h3">Improve</h3><p class="p" style="font-size: 14px;">Peer benchmarking that shows where to invest next.</p></div>
+<div class="card"><div class="step-row"><span class="step-n">01</span><span class="tag live">Live · Diagnostic</span></div><h3 class="h3">Discover</h3><p class="p" style="font-size: 14px;">Find every AI system, including shadow AI.</p></div>
+<div class="card"><div class="step-row"><span class="step-n">02</span><span class="tag live">Live · Diagnostic</span></div><h3 class="h3">Assess</h3><p class="p" style="font-size: 14px;">Score maturity and map controls to all three reporting lines.</p></div>
+<div class="card"><div class="step-row"><span class="step-n">03</span><span class="tag live">Live · Advisory</span></div><h3 class="h3">Govern</h3><p class="p" style="font-size: 14px;">Set ownership, policy and the operating model.</p></div>
+<div class="card soon"><div class="step-row"><span class="step-n">04</span><span class="tag dev">In development</span></div><h3 class="h3">Monitor</h3><p class="p" style="font-size: 14px;">Continuous evidence instead of point-in-time reviews.</p></div>
+<div class="card soon"><div class="step-row"><span class="step-n">05</span><span class="tag dev">In development</span></div><h3 class="h3">Improve</h3><p class="p" style="font-size: 14px;">Peer benchmarking that shows where to invest next.</p></div>
 </div>
 </div>
 </section>
