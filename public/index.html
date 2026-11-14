@@ -153,8 +153,15 @@ button[disabled]{opacity:.6;cursor:wait!important}
 <div class="wrap" style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
 <div style="flex: 1 1 520px; display: flex; flex-direction: column; gap: 22px; min-width: 0;">
 <span class="eyebrow">AI governance and AI security advisory for Global Capability Centers</span>
-<h1 style="font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(34px, 5vw, 56px); line-height: 1.1; margin: 0;">Govern AI the way your GCC actually reports.</h1>
-<p class="p lede">Move faster with AI, without losing control.</p>
+<div id="heroRotator" style="display: flex; flex-direction: column; gap: 22px; transition: opacity .25s ease;">
+<h1 id="heroHeadline" style="font-family: Sora, sans-serif; font-weight: 700; font-size: clamp(34px, 5vw, 56px); line-height: 1.1; margin: 0; min-height: 2.2em;">Govern AI the way your GCC actually reports.</h1>
+<p class="p lede" id="heroLede" style="min-height: 1.6em;">Move faster with AI, without losing control.</p>
+</div>
+<div class="hero-dots" role="tablist" aria-label="Hero messages" style="display: flex; gap: 8px;">
+<button type="button" class="dot active" role="tab" aria-selected="true" aria-label="Message 1 of 3" data-i="0" style="width: 22px; height: 4px; padding: 0; border: 0; border-radius: 2px; background: var(--signal); opacity: 1; cursor: pointer;"></button>
+<button type="button" class="dot" role="tab" aria-selected="false" aria-label="Message 2 of 3" data-i="1" style="width: 22px; height: 4px; padding: 0; border: 0; border-radius: 2px; background: var(--on-dark-3); opacity: .5; cursor: pointer;"></button>
+<button type="button" class="dot" role="tab" aria-selected="false" aria-label="Message 3 of 3" data-i="2" style="width: 22px; height: 4px; padding: 0; border: 0; border-radius: 2px; background: var(--on-dark-3); opacity: .5; cursor: pointer;"></button>
+</div>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
 <a class="btn" href="#talk">Request a confidential 20-minute conversation</a>
 </div>
@@ -396,5 +403,46 @@ button[disabled]{opacity:.6;cursor:wait!important}
 
 
 </div>
+<script>
+(function(){
+var slides=[
+  {h:"Govern AI the way your GCC actually reports.",p:"Move faster with AI, without losing control."},
+  {h:"Your GCC already uses AI.",p:"Assistants, copilots and agents are in daily work, often before any policy exists."},
+  {h:"Three audiences, one question.",p:"The HQ, Indian regulators and your board all ask: who is accountable for this AI?"}
+];
+var rotator=document.getElementById('heroRotator'), hEl=document.getElementById('heroHeadline'), pEl=document.getElementById('heroLede');
+var dots=document.querySelectorAll('#main .hero-dots .dot');
+if(!rotator||!hEl||!pEl||!dots.length) return;
+var i=0, timer=null, paused=false;
+var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function show(idx){
+  rotator.style.opacity='0';
+  setTimeout(function(){
+    hEl.textContent=slides[idx].h;
+    pEl.textContent=slides[idx].p;
+    dots.forEach(function(d,n){
+      var on=n===idx;
+      d.classList.toggle('active',on);
+      d.setAttribute('aria-selected', on?'true':'false');
+      d.style.background=on?'var(--signal)':'var(--on-dark-3)';
+      d.style.opacity=on?'1':'.5';
+    });
+    rotator.style.opacity='1';
+  },220);
+}
+function next(){ if(paused) return; i=(i+1)%slides.length; show(i); }
+function start(){ if(reduce) return; stop(); timer=setInterval(next,2000); }
+function stop(){ if(timer){clearInterval(timer); timer=null;} }
+dots.forEach(function(d){ d.addEventListener('click',function(){ i=parseInt(d.getAttribute('data-i'),10)||0; show(i); }); });
+var heroSection=rotator.closest('.hero');
+if(heroSection){
+  heroSection.addEventListener('mouseenter',function(){paused=true;});
+  heroSection.addEventListener('mouseleave',function(){paused=false;});
+  heroSection.addEventListener('focusin',function(){paused=true;});
+  heroSection.addEventListener('focusout',function(){paused=false;});
+}
+start();
+})();
+</script>
 </body>
 </html>
