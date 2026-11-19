@@ -70,6 +70,8 @@ async function handleLead(request, env) {
   const spec = FIELDS[kind];
   const lead = { kind };
   for (const f of [...spec.required, ...spec.optional]) lead[f] = clean(d[f], f === 'message' ? 2000 : 200);
+  if (lead.website && !/^[a-z][a-z0-9+.-]*:\/\//i.test(lead.website)) lead.website = 'https://' + lead.website.replace(/^\/+/, '');
+  if (lead.website && !/^https?:\/\/[^\s\/]+\.[^\s\/]{2,}/i.test(lead.website)) return json({ ok: false, error: 'Please enter a valid website, for example yourcompany.com.' }, 400);
   for (const f of spec.required) if (!lead[f]) return json({ ok: false, error: 'Please fill in all required fields.' }, 400);
   if (!EMAIL_RE.test(lead.email)) return json({ ok: false, error: 'Please enter a valid work email.' }, 400);
   if (FREE_MAIL.has(lead.email.split('@')[1].toLowerCase())) return json({ ok: false, error: 'Please use your work email, not a personal one such as Gmail.' }, 400);
