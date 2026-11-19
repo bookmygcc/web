@@ -98,9 +98,14 @@ async function handleLead(request, env) {
     redirect: 'follow',
   });
   let saved = false;
-  if (r.ok) { try { saved = (await r.json()).ok === true; } catch { saved = false; } }
+  let bodyText = '';
+  try { bodyText = await r.text(); } catch { bodyText = ''; }
+  if (r.ok) { try { saved = JSON.parse(bodyText).ok === true; } catch { saved = false; } }
   if (!saved) {
-    console.error(JSON.stringify({ event: 'lead_webhook_failed', status: r.status, kind }));
+    // Log why the webhook refused (status, final URL host, first 300 characters of its reply). No lead data is logged.
+    let finalHost = '';
+    try { finalHost = new URL(r.url).hostname; } catch { /* ignore */ }
+    console.error(JSON.stringify({ event: 'lead_webhook_failed', status: r.status, kind, finalHost, reply: bodyText.replace(/\s+/g, ' ').slice(0, 300) }));
     return json({ ok: false, error: 'We could not save your request right now.' }, 502);
   }
   return json({ ok: true, stored: true });
