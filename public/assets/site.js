@@ -46,6 +46,7 @@
       }
       var data = {};
       new FormData(form).forEach(function (v, k) { data[k] = typeof v === 'string' ? v.trim() : v; });
+      if (data.website && !/^[a-z][a-z0-9+.-]*:\/\//i.test(data.website)) data.website = 'https://' + data.website.replace(/^\/+/, '');
       data.consent = !!form.querySelector('[name="consent"]').checked;
       data.kind = form.dataset.kind;
       var src = window.__bmgSource || {};
