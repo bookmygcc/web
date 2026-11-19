@@ -109,6 +109,10 @@ async function handleLead(request, env) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    // One canonical host: send www to the apex, keeping path and query.
+    if (url.hostname === 'www.bookmygcc.com') {
+      return Response.redirect('https://bookmygcc.com' + url.pathname + url.search, request.method === 'GET' || request.method === 'HEAD' ? 301 : 308);
+    }
     if (url.pathname === '/api/lead') {
       if (request.method !== 'POST') return json({ ok: false, error: 'Method not allowed.' }, 405);
       try { return await handleLead(request, env); } catch (e) {
