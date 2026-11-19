@@ -105,7 +105,7 @@ async function handleLead(request, env) {
     // Log why the webhook refused (status, final URL host, first 300 characters of its reply). No lead data is logged.
     let finalHost = '';
     try { finalHost = new URL(r.url).hostname; } catch { /* ignore */ }
-    console.error(JSON.stringify({ event: 'lead_webhook_failed', status: r.status, kind, finalHost, reply: bodyText.replace(/\s+/g, ' ').slice(0, 300) }));
+    console.error(JSON.stringify({ event: 'lead_webhook_failed', status: r.status, kind, finalHost, title: ((bodyText.match(/<title>([^<]{0,120})/i) || [])[1] || ''), reply: bodyText.replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<style[\s\S]*?<\/style>/gi, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300) }));
     return json({ ok: false, error: 'We could not save your request right now.' }, 502);
   }
   return json({ ok: true, stored: true });
